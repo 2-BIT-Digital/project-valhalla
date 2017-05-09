@@ -1,0 +1,12 @@
+{
+    "name": "2-BIT-Digital/project-valhalla",
+    "authors": [
+        {
+            "name": "2-BIT-Digital",
+            "email": "2bitdevs@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^2.4"
+    }
+}
