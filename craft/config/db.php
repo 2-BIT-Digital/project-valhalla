@@ -8,20 +8,18 @@
  */
 
 return array(
-
 	// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
-	'server' => 'localhost',
+	'server' => getenv('DB_HOST') ?: 'localhost',
 
 	// The name of the database to select.
-	'database' => 'valhalla',
+	'database' => getenv('DB_NAME') ?: 'valhalla',
 
 	// The database username to connect with.
-	'user' => 'valhalla',
+	'user' => getenv('DB_USER') ?: 'homestead',
 
 	// The database password to connect with.
-	'password' => 'valhalla2017',
-
+	'password' => getenv('DB_PASS') ?: 'secret',
+	
 	// The prefix to use when naming tables. This can be no more than 5 characters.
 	'tablePrefix' => 'craft',
-
 );

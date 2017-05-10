@@ -1,33 +1,44 @@
 <?php
-
 /**
  * General Configuration
  *
  * All of your system's general configuration settings go in here.
  * You can see a list of the default settings in craft/app/etc/config/defaults/general.php
  */
-
 return array(
-
-	// Base site URL
-	'siteUrl' => null,
-
-	// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
-	'environmentVariables' => array(),
-
-	// Default Week Start Day (0 = Sunday, 1 = Monday...)
-	'defaultWeekStartDay' => 0,
-
-	// Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
-	'enableCsrfProtection' => true,
-
-	// Whether "index.php" should be visible in URLs (true, false, "auto")
-	'omitScriptNameInUrls' => 'auto',
-
-	// Control Panel trigger word
-	'cpTrigger' => 'admin',
-
-	// Dev Mode (see https://craftcms.com/support/dev-mode)
-	'devMode' => false,
-
+    // All environments
+    '*' => array(
+        'omitScriptNameInUrls' => true,
+        'usePathInfo' => true,
+        'cacheDuration' => false,
+        'useEmailAsUsername' => true,
+        'generateTransformsBeforePageLoad' => true,
+        'siteUrl' => getenv('SITE_URL') ?: null,
+        'craftEnv' => getenv('CRAFT_ENVIRONMENT') ?: CRAFT_ENVIRONMENT,
+        'pageTrigger' => 'page/',
+        // Set the environment variables as per:
+        // https://craftcms.com/docs/multi-environment-configs#environment-specific-variables
+        'environmentVariables' => array(
+            'basePath' => getenv('BASE_PATH'),
+            'baseUrl' => getenv('BASE_URL'),
+        ),
+    ),
+    // Live (production) environment
+    'production' => array(
+        'devMode' => false,
+        'enableTemplateCaching' => true,
+        'allowAutoUpdates' => false,
+    ),
+    // Staging (pre-production) environment
+    'staging' => array(
+        'devMode' => false,
+        'enableTemplateCaching' => true,
+        'allowAutoUpdates' => false,
+    ),
+    // Local (development) environment
+    'development' => array(
+        'devMode' => true,
+        'enableTemplateCaching' => false,
+        'allowAutoUpdates' => true,
+    ),
 );
