@@ -1,5 +1,5 @@
 # Project Valhalla
-A website that will hold content. Here's how to setup your local dev environment:
+A website that will hold reviews for tech and media. Here's how to setup your local dev environment:
 
 ## Environment Setup
 
