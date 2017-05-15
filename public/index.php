@@ -2,7 +2,7 @@
 
 require_once('../vendor/autoload.php');
 
-$craftEnvironment = getenv('CRAFT_ENVIRONMENT') ?: 'development';
+$craftEnvironment = getenv('CRAFT_ENVIRONMENT') ?: 'staging';
 
 if ($craftEnvironment === 'development') {
     try {
