@@ -8,7 +8,7 @@ Basically, you need an environment that has the following setup:
  - apache or nginx
  - Composer
 
-*Important*: Ensure that you have your hosts file configured so that the site is accessible from something like `http://cobramestate.local/`.
+*Important*: Ensure that you have your hosts file configured so that the site is accessible from something like `http://valhalla.local/`.
 
 If you don't have Composer there are [installation instructions here](https://getcomposer.org/doc/00-intro.md)
 
@@ -56,7 +56,7 @@ folders:
       to: /home/vagrant/sites/valhalla
 
 sites:
-    - map: cobramestate.local
+    - map: valhalla.local
       to: "/home/vagrant/sites/valhalla/public"
 
 databases:
@@ -66,7 +66,7 @@ ports:
     - send: 6001
       to: 6001
 ```
-- Update your `/etc/hosts` file and add an entry for `192.168.10.10  cobramestate.local`
+- Update your `/etc/hosts` file and add an entry for `192.168.10.10  valhalla.local`
 - For convenience, add an alias for vagrant that will run vagrant commands specifically for your homestead installation. To do that you will need to add the following to your Bash profile and restart your command line:
 ```
 function homestead() {
@@ -96,7 +96,7 @@ Then restart mysql like this:
 sudo service mysql restart
 ```
 - Now you can exit the ssh session by running `exit`.
-- You should now be able to hit `http://cobramestate.local/` in your browser! 🎉 Note: You will probably get an error saying you don't have a `.env` file. That's okay, just continue with the configuration variables instructions below.
+- You should now be able to hit `http://valhalla.local/` in your browser! 🎉 Note: You will probably get an error saying you don't have a `.env` file. That's okay, just continue with the configuration variables instructions below.
 
 ### Setting up your database
 - Open your mysql database GUI of choice. I like HeidiSQL for Windows, and Sequel Pro for OSX.
