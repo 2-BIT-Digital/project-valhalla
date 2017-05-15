@@ -4,12 +4,14 @@ require_once('../vendor/autoload.php');
 
 $craftEnvironment = getenv('CRAFT_ENVIRONMENT') ?: 'development';
 
-try {
-    $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
-    $dotenv->load();
-    $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS', 'SITE_URL']);
-} catch (Exception $e) {
-    exit('Could not find a .env file.');
+if ($craftEnvironment === 'development') {
+    try {
+        $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
+        $dotenv->load();
+        $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS', 'SITE_URL']);
+    } catch (Exception $e) {
+        exit('Could not find a .env file.');
+    }
 }
 
 define('CRAFT_ENVIRONMENT', $craftEnvironment);
