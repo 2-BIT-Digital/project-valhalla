@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, './craft/templates'),
   entry: {
-    main: './js/main.js',
+    main: './_js/main.js',
   },
   output: {
     path: path.resolve(__dirname, './public/dist'),
